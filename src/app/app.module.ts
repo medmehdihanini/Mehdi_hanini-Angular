@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { FournisseurComponent } from './DATABINDING-WORKSHOP/fournisseur/fournisseur.component';
 import { ListFournisseurComponent } from './DATABINDING-WORKSHOP/list-fournisseur/list-fournisseur.component';
 import { ListProduitsComponent } from './DATABINDING-WORKSHOP/list-produits/list-produits.component';
+import {WorkshopRoutingModule} from "./workshop-routing/workshop-routing.module";
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ListProduitsComponent } from './DATABINDING-WORKSHOP/list-produits/list
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    WorkshopRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

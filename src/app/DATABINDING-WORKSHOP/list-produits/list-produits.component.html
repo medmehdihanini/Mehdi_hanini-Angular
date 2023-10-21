@@ -32,7 +32,7 @@
       </div>
 
       <button type="submit" (click)="ajouterProduit()" class="btn btn-info">AJOUTER</button>
-      
+
   <!-- chercher PRODUIT-->
       <div class="form-group p-5">
         CHERCHER AVEC CODE : <input type="text"  class="form-control"  placeholder="Enter code"  [(ngModel)]="codeR">
@@ -51,4 +51,19 @@
       </button>
     </div>
   </div>
+<h4> QuestionNumber de pc :{{number}}</h4>
+  <div  *ngFor="let p of afficheProduct,let i=index "class="card mb-3">
+    <h4 class="card-header">ID : {{ p.id }}</h4>
+    <div  class="card-body">
+      <h4 style="color:rgba(152,7,241,0.25)" class="card-title"> Libelle {{p.libelle}}</h4>
+      <h6 class="card-title">code : {{ p.code }}</h6>
+      <h6 class="card-title">prixUnitaire : {{ p.prixunitaire }}</h6>
+      <h6 class="card-title">tauxTVA : {{ p.tauxTva }}</h6>
+      <button (click)="calculerProduit(p.libelle,i)"  class="btn btn-warning">  calculer
+      </button>
+      <p *ngIf="index==i">number de produit de meme libelle : {{number9}}</p>
+
+    </div>
+  </div>
+
 </div>

@@ -1,3 +1,4 @@
+<app-navbar> </app-navbar>
 <div class="container mt-5">
   <ul *ngFor="let i of getList(); let index = index">
     <li>
@@ -6,5 +7,5 @@
       <a  style="margin-left: 20px;" [routerLink]="['/atelier3/invoice']" [queryParams]="{ id: i.idFacture, active: i.active }">QP Details</a>
     </li>
   </ul>
-  
+
 </div>

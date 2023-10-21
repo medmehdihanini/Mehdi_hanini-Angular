@@ -1,14 +1,28 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Produits } from '../../models/produits';
+import {ProductServiceService} from "../../Services/product-service.service";
+import {Product} from "../../models/products";
 
 @Component({
   selector: 'app-list-produits',
   templateUrl: './list-produits.component.html',
   styleUrls: ['./list-produits.component.css'],
 })
-export class ListProduitsComponent {
-    codeR!: string;
+export class ListProduitsComponent implements OnInit{
 
+  constructor(private Produitserv:ProductServiceService) {
+  }
+  number : number=0; number9 : number=0;
+  afficheProduct:Product[]=[]
+  ngOnInit(): void {
+
+    this.afficheProduct=this.Produitserv.getAllProducts()
+    this.number=this.Produitserv.getNbProductsByLibelle("PC")
+}
+
+
+
+    codeR!: string;
     idProduit!: number;
     code!: string;
     libelle!: string;
@@ -20,7 +34,7 @@ export class ListProduitsComponent {
       p.code.toLowerCase().startsWith(this.codeR.toLocaleLowerCase())
     );
   }
-  
+
   clearInputs(){
     this.idProduit= null!;
     this.code= '';
@@ -35,7 +49,7 @@ export class ListProduitsComponent {
     this.clearInputs();
 
   }
-  
+
   list: Produits[] = [
     {
       idProduit: 1,
@@ -90,5 +104,12 @@ export class ListProduitsComponent {
   }
 
 
+  protected readonly Number = Number;
+index: Number | undefined;
+  calculerProduit(libelle: string,i: Number) {
+    this.index=i;
 
+    this.number9=this.Produitserv.getNbProductsByLibelle(libelle)
+
+  }
 }
