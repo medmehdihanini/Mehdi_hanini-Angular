@@ -17,10 +17,6 @@ import { NavbarComponent } from './navbar/navbar.component';
     NavbarComponent,
     Homew3Component,
   ],
-  exports: [
-    NavbarComponent,
-    NavbarComponent
-  ],
   imports: [
     CommonModule,
     WorkshopRoutingRoutingModule

@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'atelier3',loadChildren:()=>import('./workshop-routing/workshop-routing.module')
     .then(mod=> mod.WorkshopRoutingModule )
   },
+  {
+    path: 'users',loadChildren:()=>import('./USERS/liste-user/liste-user-routing.module')
+    .then(mod=> mod.ListeUserRoutingModule )
+  },
 
 
 ];

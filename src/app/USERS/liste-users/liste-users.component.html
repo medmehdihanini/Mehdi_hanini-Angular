@@ -1,0 +1,132 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="atelier2" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+
+<div class="container">
+  <table class="table table-bordered mt-4">
+    <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Birth Date</th>
+      <th>Email</th>
+      <th>Account Category</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let u of usersList">
+      <td>{{ u.firstName }}</td>
+      <td>{{ u.lastName }}</td>
+      <td>{{ u.birthDate }}</td>
+      <td>{{ u.email }}</td>
+      <td>{{ u.accountCategory }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div class="container">
+<table class="table table-bordered mt-4">
+  <thead>
+  <h1>JSON TABLE </h1>
+
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Birth Date</th>
+    <th>Email</th>
+    <th>Account Category</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let u of usersListDbJson">
+    <td>{{ u.firstName }} </td>
+    <td>{{ u.lastName }}</td>
+    <td>{{ u.birthDate }}</td>
+    <td>{{ u.email }}</td>
+    <td>{{ u.accountCategory }}</td>
+    <td> <button routerLink="update/{{u.id}}"> Update </button></td>
+    <td> <button (click)="delete(u)"> Supprimer </button></td>
+  </tr>
+  </tbody>
+</table>
+</div>
+
+<br>
+
+
+<div class="container">
+  <div class="row justify-content-center">
+
+    <div class="col-md-6">
+      <form #formUser="ngForm" (ngSubmit)="add(formUser)">
+        <div class="form-group">
+          <h2>add user</h2>
+          <label for="fn">First name</label>
+          <input type="text" class="form-control" id="fn" ngModel name="firstName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="ln">Last name</label>
+          <input type="text" class="form-control" id="ln" ngModel name="lastName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="bd">Birthdate</label>
+          <input type="text" class="form-control" id="bd" ngModel name="birthDate">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" class="form-control" id="email" ngModel name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="accountCategory">Account Category</label>
+          <input type="text" class="form-control" id="accountCategory" ngModel name="accountCategory" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="text" class="form-control" id="password" ngModel name="password" required>
+        </div>
+
+        <div class="form-group">
+          <label for="picture">Picture</label>
+          <input type="text" class="form-control" id="picture" ngModel name="picture">
+        </div>
+
+        <div class="form-group">
+          <label for="profession">Profession</label>
+          <input type="text" class="form-control" id="profession" ngModel name="profession">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+      </form>
+    </div>
+  </div>
+</div>
+

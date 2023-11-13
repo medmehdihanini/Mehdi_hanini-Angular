@@ -10,6 +10,10 @@ import { FournisseurComponent } from './DATABINDING-WORKSHOP/fournisseur/fournis
 import { ListFournisseurComponent } from './DATABINDING-WORKSHOP/list-fournisseur/list-fournisseur.component';
 import { ListProduitsComponent } from './DATABINDING-WORKSHOP/list-produits/list-produits.component';
 import {WorkshopRoutingModule} from "./workshop-routing/workshop-routing.module";
+import {ListeUserRoutingModule} from "./USERS/liste-user/liste-user-routing.module";
+import {HttpClientModule} from "@angular/common/http";
+import {ListeUserModule} from "./USERS/liste-user/liste-user.module";
+import { UserUpdateComponent } from './USERS/user-update/user-update.component';
 
 
 @NgModule({
@@ -19,12 +23,17 @@ import {WorkshopRoutingModule} from "./workshop-routing/workshop-routing.module"
     FournisseurComponent,
     ListFournisseurComponent,
     ListProduitsComponent,
+    UserUpdateComponent,
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    WorkshopRoutingModule
+    WorkshopRoutingModule,
+    ListeUserRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
